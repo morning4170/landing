@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anna Armstrong</title>
+  <meta name="description" content="Anna Armstrong — family photographer, early-childhood educator, and tax help. Brisbane, Port Stephens & Newcastle." />
+  <style>
+    :root {
+      --bg: #faf7f2;
+      --card: #ffffff;
+      --ink: #2c2a27;
+      --muted: #7a756e;
+      --accent: #b9795a;
+      --accent-soft: #f0e4dc;
+      --border: #ece5dc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 48px 22px 60px; }
+    header { text-align: center; margin-bottom: 36px; }
+    .avatar {
+      width: 92px; height: 92px; border-radius: 50%;
+      margin: 0 auto 18px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 34px; font-weight: 600;
+      border: 1px solid var(--border);
+    }
+    h1 { font-size: 30px; font-weight: 650; letter-spacing: -0.4px; }
+    .tagline { color: var(--accent); margin-top: 6px; font-size: 16px; font-weight: 500; }
+    .locations { color: var(--muted); margin-top: 8px; font-size: 14px; letter-spacing: 0.3px; }
+    .intro { text-align: center; color: var(--muted); font-size: 15.5px; margin: 0 auto 34px; max-width: 520px; }
+
+    .services { display: grid; gap: 16px; }
+    @media (min-width: 560px) { .services { grid-template-columns: 1fr 1fr; } }
+    .service {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 22px;
+    }
+    .service h2 { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+    .service p { font-size: 14.5px; color: var(--muted); }
+    .tag {
+      display: inline-block; margin-top: 12px;
+      font-size: 12.5px; color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 11px; border-radius: 999px;
+    }
+
+    .contact {
+      margin-top: 34px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 26px 22px;
+      text-align: center;
+    }
+    .contact h2 { font-size: 18px; font-weight: 650; margin-bottom: 14px; }
+    .row { font-size: 17px; margin: 8px 0; }
+    .row a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .row a:hover { text-decoration: underline; }
+    .row .label { color: var(--muted); font-size: 13px; display: block; margin-bottom: 2px; }
+    .note { color: var(--muted); font-size: 12.5px; margin-top: 14px; }
+    footer { text-align: center; color: var(--muted); font-size: 12.5px; margin-top: 34px; }
+    noscript { display:block; text-align:center; color: var(--muted); font-size: 14px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="avatar">AA</div>
+      <h1>Anna Armstrong</h1>
+      <p class="tagline">Videography · Photography · Childcare · Tax help</p>
+      <p class="locations">Brisbane · Port Stephens · Newcastle</p>
+    </header>
+
+    <p class="intro">
+      Anna brings a diverse background and many years of experience across videography,
+      photography, childcare and accounting — filming families since 1995 and helping with
+      tax and accounting since 2006. A qualified kindergarten teacher with a B.Com (Taxation),
+      she's here to help the community. <strong>Contact now for support.</strong>
+    </p>
+
+    <section class="services">
+      <div class="service">
+        <h2>Photography &amp; Videography</h2>
+        <p>Family photography and video across Brisbane, Port Stephens and Newcastle — capturing moments since 1995.</p>
+        <span class="tag">Photography enquiries welcome</span>
+      </div>
+      <div class="service">
+        <h2>Babysitting &amp; Childcare</h2>
+        <p>Caring, experienced babysitting from a qualified early-childhood educator.</p>
+        <span class="tag">Babysitting inquiries welcome</span>
+      </div>
+      <div class="service">
+        <h2>Tax &amp; Accounting Help</h2>
+        <p>B.Com (Taxation) — friendly help with tax and accounting since 2006.</p>
+        <span class="tag">Get in touch</span>
+      </div>
+      <div class="service">
+        <h2>Early-Childhood Education</h2>
+        <p>Qualified kindergarten teacher with hands-on early-years experience.</p>
+        <span class="tag">Ask me</span>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Get in touch</h2>
+      <div class="row">
+        <span class="label">Email</span>
+        <a id="email-link" href="#">loading…</a>
+      </div>
+      <div class="row">
+        <span class="label">Phone</span>
+        <a id="phone-link" href="#">loading…</a>
+      </div>
+      <p class="note">Please enable JavaScript to see contact details (this keeps them hidden from spam bots).</p>
+      <noscript>Contact details are hidden from bots — please enable JavaScript to view them.</noscript>
+    </section>
+
+    <footer>© <span id="year"></span> Anna Armstrong</footer>
+  </div>
+
+  <script>
+    // Contact details are assembled here at load time so they never appear
+    // as plain text in the page source — spam bots scraping the HTML see nothing.
+    (function () {
+      function rev(s) { return s.split('').reverse().join(''); }
+
+      // Email (stored reversed so it is not scannable in source)
+      var user = rev('6202');
+      var domain = rev('moc.gnortsmra-anna');
+      var email = user + '@' + domain;
+      var eLink = document.getElementById('email-link');
+      eLink.textContent = email;
+      eLink.href = 'mailto:' + email;
+
+      // Phone (stored as separate groups; shown with heart separators)
+      var g = ['04' + '97', '4' + '23', '25' + '6'];
+      var hearts = [' ♥ ', ' ♡ '];
+      var phoneDisplay = g[0] + hearts[0] + g[1] + hearts[1] + g[2];
+      var digits = g.join('');
+      var tel = '+61' + digits.substring(1);
+      var pLink = document.getElementById('phone-link');
+      pLink.textContent = phoneDisplay;
+      pLink.href = 'tel:' + tel;
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
